@@ -1,37 +1,41 @@
-\documentclass[conference]{IEEEtran}
+\documentclass{article}
+
 \usepackage[utf8]{inputenc}
-
-%\usepackage[portuguese]{babel}
-%
-%\usepackage{glossaries}  
-%\setacronymstyle{short-long}
-%
-%\newacronym{mpls}{MPLS}{Multiprotocol Label Switching}
-%\newacronym{asic}{ASIC}{Application-specific Integrated Circuit}
-%
-%\makeglossaries
-
-\usepackage{multirow}
-
-\usepackage[pdftex]{graphicx}
-\graphicspath{{./Imagens/}}
-
-% correct bad hyphenation here
-\hyphenation{op-tical net-works semi-conduc-tor DEFCON}
-%
+\usepackage[top=2.5cm, bottom=2.5cm, left=2cm, right=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{float}
+\usepackage[small,bf]{caption}
+\setlength{\captionmargin}{3pt}
+\usepackage{multicol}
+\usepackage{blindtext}
+\usepackage{geometry}
+\usepackage{subfigure}
+\usepackage{enumerate}
+\usepackage{scalefnt}
+\providecommand{\keywords}[1]{\textbf{\textit{Keywords:}} #1}
 
 \begin{document}
-\title{How private is my medical information?\\
-  \large Sociologia e Ética da Informática\\
-  2017/2018				%%Colocar data
+
+%
+%
+% ------------------------------------------------------------
+
+\title{How private is my medical information?}
+%
+\author{Vanessa Silva\\
+	{\texttt{(up201305731@fc.up.pt)}}\\
+	\multicolumn{1}{p{.7\textwidth}}{\centering\emph{
+		\\Departamento de Ciências de Computadores,\\Faculdade de Ciências da Universidade do Porto}}
 }
 
-\author{
-\IEEEauthorblockN{Vanessa Silva}
-\IEEEauthorblockA{Faculdade de Ciências da Universidade do Porto\\Email: up201305731@fc.up.pt}
-}
+\date{\today}
 
 \maketitle
+
+% ------------------------------------------------------------
+
+%----------------------ABSTRACT----------------------%
 
 \begin{abstract}
 
@@ -40,8 +44,11 @@
 \end{abstract}
 
 
-\IEEEpeerreviewmaketitle
+% ------------------------------------------------------------
 
+\begin{multicols}{2}
+
+%----------------------INTRODUÇÃO----------------------%
 
 \section{Introdução}
 
@@ -51,11 +58,60 @@
 
 % organizar segundo o tema em questão e segundo os tópicos que pretende realçar. Uma das secções pode ser usada para referenciar ou comparar trabalhos relacionados.
 
+\subsection{Terminologia}
+
+\begin{itemize}
+
+	\item \textbf{Dados pessoais} - qualquer informação, independentemente da natureza e do respetivo suporte, incluindo som e imagem, relativa a uma pessoa singular identificada ou identificável (titular dos dados); sendo que uma pessoa é considerada identificável pode ser identificada direta ou indiretamente, por referência a um número de identificação ou a um ou mais elementos específicos da sua identidade física, fisiológica, psíquica, económica, cultural ou social (Publica__o_Parecer_-_ERS_016_2015.pdf e tertulia_1.pdf).
+	
+	\item \textbf{Informação médica} - informação de saúde destinada a ser utilizada em prestações de cuidados ou tratamentos de saúde (___Regulamento n.pdf).
+	
+	\item \textbf{Informação de saúde} - qualquer informação direta ou indiretamente ligada à saúde, presente ou futura, de uma pessoa, quer se encontre com vida ou tenha falecido, e a sua história clínica e familiar (Consolidação_106487526_28-04-2017.pdf).
+	
+	\item \textbf{Processo clínico} - qualquer registo, informatizado ou não, que contenha informação de saúde sobre doentes ou sobre os seus familiares. Deve conter toda a informação médica disponível que diga respeito ao doente, incluindo a sua situação atual, evolução futura e história clínica e familiar, bem como de informação suficiente sobre a identificação do doente (___Regulamento n.pdf) (Publica__o_Parecer_-_ERS_016_2015.pdf). 
+	
+	\item \textbf{Ficha clínica} - é o registo dos dados clínicos do doente e das anotações pessoais do médico. Tem como finalidade a memória futura e a comunicação entre os profissionais que tratem o doente (___Regulamento n.pdf).
+	
+	\item \textbf{Processo clínico eletrónico} - agrega informação médica dispersa de um doente, pode conter dados relativos à sua história clínica, exames físicos e complementares, diagnósticos, intervenções cirúrgicas, e são introduzidos e visualizados de forma estruturada. Permite a articulação entre vários serviços de saúde, a consulta e o pedido em \textit{real time} de meios complementares de diagnóstico, bem como a partilha da informação entre o utente, os profissionais de saúde e as instituições (tertulia_1.pdf).
+	
+	\item \textbf{Tratamento de dados pessoais} - qualquer operação ou conjunto de operações efetuadas sobre os dados pessoais, com ou sem meios automatizados, tais como recolha, registo, organização, conservação, adaptação ou alteração, recuperação, consulta, utilização, comunicação, bloqueio, eliminação ou destruição (Publica__o_Parecer_-_ERS_016_2015.pdf).
+	
+	\item \textbf{Dados anonimizados} - alteração do processo clínico impossibilita a vinculação dos doentes com os seus dados \cite{safran2007toward}.
+	
+	\item \textbf{Dados de-identificados} - eliminação de todos os identificadores, ou seja, nome do doente, número de utente, número de segurança social, e outros dados que vinculam diretamente um doente com os seus dados \cite{safran2007toward}.
+	
+	\item \textbf{Dados anonimizados reversíveis} - alteração do processo clínico de forma a que a re-identificação possa ser realizada através do acesso a uma chave protegida que permita vincular os doentes com os seus dados \citep{safran2007toward}.
+	
+	\item \textbf{Privacidade} - direito fundamental de cada indivíduo de decidir quem deve ter acesso aos seus dados pessoais (http://im.med.up.pt/seguranca/index.html).
+	
+	\item \textbf{Confidencialidade} - disponibilidade de medidas e mecanismos para manter a privacidade do doente, e proporcionando uma estrutura que permita dar acesso a informação privada, a quem foi dada autorização para tal (http://im.med.up.pt/seguranca/index.html).
+	
+\end{itemize}
+
+\subsection{Entidades controladores do sistema de saúde}
+
+\begin{itemize}
+
+	\item \textbf{Comissão Nacional de Proteção de Dados (CNPD)}: Entidade administrativa independente, com poderes de autoridade, que funciona junto da Assembleia da República. Tem como função controlar e fiscalizar o cumprimento das disposições legais na matéria de proteção de dados pessoais, em rigoroso respeito pelos direitos do homem e pelas liberdades e garantias consagradas na Constituição e na lei.
+	
+	\item \textbf{Ordem dos Médicos}: Associação pública que representa os médicos que exercem a profissão em Portugal, distribuídos por especialidades, sub-especialidades e competência, cuja principal missão é promover a defesa da qualidade dos cuidados de saúde prestados à população, bem como o desenvolvimento, a regulamentação e o controlo do exercício da profissão de médico, assegurando a observância das regras de ética e deontologia profissional.
+	
+	\item \textbf{Gabinete Nacional de Segurança/Centro Nacional de Cibersegurança (GNS/CNCS)}: Tem como principal objetivo contribuir para que o país use o ciberespaço de forma livre, mas, e acima de tudo, de forma confiável e segura, através da promoção de uma contínua melhoria da cibersegurança nacional e da cooperação internacional, bem como da implementação de medidas e instrumentos necessários para antecipar, detetar, reagir e recuperar de situações que, face à ocorrência de incidentes ou ciberataques, ponham em causa o funcionamento das infraestruturas críticas e os interesses nacionais ((PROTOCOLO DE COOPERAÇÃO ENTRE O  GABINETE NACIONAL DE SEGURANÇA / CENTRO NACIONAL DE CIBERSEGURANÇA E A SPMS – SERVIÇOS PARTILHADOS DO MINISTÉRIO DA SAÚDE, E.P.E.)ficheiro).
+	
+	\item \textbf{Serviços Partilhados do Ministério da Saúde (SPMS)}: Tem com principal objetivo a cooperação, a partilha de conhecimento e informação e o desenvolvimento de atividades de prestação de serviços nas áreas dos sistemas e tecnologias de informação e de comunicação, garantindo a operacionalidade e segurança das infraestruturas tecnológicas e dos sistemas de informação do Ministério da Saúde.
+
+\end{itemize}
+
+Dados as competências particulares e objetivos comuns, no passado dia 21 de fevereiro de 2017, o SPMS assinou com o GNS/CNCS um protocolo de cooperação. Este protocolo visa promover a otimização de procedimentos e uma maior eficiência no sistema, estabelecendo as formas de cooperação entre as partes no desenvolvimento das capacidades nacionais de cibersegurança, troca de conhecimento e aprofundamento das capacidades.
+
+%----------------------CONCLUSÃO----------------------%
+
 \section{Conclusões}
 
 % resumir o que foi apresentado e indicar possíveis tópicos de continuação ou perspectivas de futuro/sucesso (10-15 linhas).
 
-\bibliography{ref}{}
-\bibliographystyle{IEEEtran}
+\bibliographystyle{splncs03}
+\bibliography{ref}
 
+\end{multicols}
 \end{document}
