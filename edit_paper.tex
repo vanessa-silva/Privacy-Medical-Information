@@ -1,21 +1,25 @@
 \documentclass[conference]{IEEEtran}
-\usepackage[utf8]{inputenc}
 
-\usepackage[portuguese]{babel}
-
+\usepackage{indentfirst}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{footnote}
+\usepackage[hidelinks]{hyperref}
 \usepackage{multirow}
-
+\usepackage{cite}
+\usepackage{url}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
 \usepackage{datetime}
-
-\usepackage[table,xcdraw]{xcolor}
-
+\usepackage[T1]{fontenc}
 \usepackage[pdftex]{graphicx}
-\graphicspath{{./Imagens/}}
-
+%\graphicspath{{./Images/}}
+\usepackage[table,xcdraw]{xcolor}
 \usepackage{adjustbox}
-
 % correct bad hyphenation here
-\hyphenation{op-tical net-works semi-conduc-tor DEFCON}
+\usepackage{hyphenat}
+\hyphenation{mate-mática recu-perar}
+
 
 \begin{document}
 
@@ -104,16 +108,16 @@
 
 \end{itemize}
 
-Dados as competências particulares e objetivos comuns, no passado dia 21 de fevereiro de 2017, o SPMS assinou com o GNS/CNCS um protocolo de cooperação. Este protocolo visa promover a otimização de procedimentos e uma maior eficiência no sistema, estabelecendo as formas de cooperação entre as partes no desenvolvimento das capacidades nacionais de cibersegurança, troca de conhecimento e aprofundamento das capacidades.
+Dadas as competências particulares e objetivos comuns, no passado dia 21 de fevereiro de 2017, a SPMS assinou com a GNS/CNCS um protocolo de cooperação. Este protocolo visa promover a otimização de procedimentos e uma maior eficiência no sistema, estabelecendo as formas de cooperação entre as partes no desenvolvimento das capacidades nacionais de cibersegurança, troca de conhecimento e aprofundamento das capacidades.
 
 
 \section{Secção do Desenvolvimento}
 
 \subsection{Motivação}
 
-A recolha da informação médica é feita durante uma consulta médica, essencialmente através da narrativa do doente, de exames complementares e através da consulta ao processo e à ficha clínica anterior do doente, caso exista.
+A recolha da informação médica é feita durante uma consulta médica, essencialmente através da narrativa do doente, de exames complementares e através da consulta ao processo e à ficha clínica anterior do doente, caso existam (figura \ref{fig1}).
 
-A informação que consta num processo clínico corresponde a informação maioritariamente alfanumérica, ou seja, que pode ser representada por carateres ou dígitos. Enquanto que a restante informação, proveniente dos meios complementares de diagnóstico, como sinal ou imagem, normalmente não consta no processo clínico, por exemplo imagens de ressonâncias magnéticas só são visualizadas quando explicitamente solicitadas, não ficando assim toda a informação clínica de um dado doente disponível como um todo \cite{santos2010comunicaccao}.
+A informação que consta num processo clínico corresponde a informação maioritariamente alfanumérica, ou seja, que pode ser representada por carateres ou dígitos. Enquanto que a restante informação, proveniente dos meios complementares de diagnóstico, como sinal ou imagem, normalmente não consta no processo clínico. Por exemplo imagens de ressonâncias magnéticas só são visualizadas quando explicitamente solicitadas, não ficando assim toda a informação clínica de um dado doente disponível como um todo \cite{santos2010comunicaccao}.
 
 Na verdade, muitas das vezes os profissionais de saúde não dispõem de toda a informação sobre os doentes, o que poderá refletir-se na qualidade e nos resultados da sua intervenção. Estas falhas no acesso à informação médica podem conduzir a quebras na continuidade dos serviços prestados, a tratamentos/procedimentos inadequados ou pouco eficazes, com efeitos negativos para o bem-estar do doente \cite{santos2010comunicaccao}. 
 
@@ -126,13 +130,11 @@ Na verdade, muitas das vezes os profissionais de saúde não dispõem de toda a 
     \caption{Ciclo clínico \cite{regclinelect}.}
 \end{figure}
  
-O processo clínico em papel é uma forma de registo clínico onde os dados são escritos pelo proficional de saude, e toda a informação clínica complementar é anexada a este. Este é um sistema de armazenamento, que serve de base à prestação de cuidados de saúde, e por isso, necessita de integrar informação proveniente de diversas fontes \cite{regclinelect}. Mas com o decorre dos anos este formato em papel começou a desencadear vários inconvenientes devido à diversidade da estruturação da informação, que depende do médico e/ou da instituição, ou a falta dela, ao acesso limitado à informação bem como a dificuldades na localização de determinada informação, à ilegibilidade dos registos médicos, e a perdas e duplicação de informação \cite{regclinelect}.
+O processo clínico em papel é uma forma de registo clínico onde os dados são escritos pelo proficional de saude, e toda a informação clínica complementar é anexada a este. Este é um sistema de armazenamento, que serve de base à prestação de cuidados de saúde, e por isso, necessita de integrar informação proveniente de diversas fontes \cite{regclinelect}. Mas com o decorre dos anos o formato em papel começou a desencadear vários inconvenientes devido à diversidade da estruturação da informação, que depende do médico e/ou da instituição, ou a falta dela, devido ao acesso limitado à informação bem como a dificuldades na localização de determinada informação, à ilegibilidade dos registos médicos, e a perdas e duplicação de informação \cite{regclinelect}.
 
-Com o avanço da tecnologia, surgiram os processos clínico eletrónicos que visam não só colmatar as limitações referidas, bem como fornecer uma variedade de ferramentas auxiliares que permitam ajudar na decisão clínica, avaliar a qualidade dos cuidados prestados, ajudar na investigação e na educação médica, realizar a gestão e o planeamento dos recursos de saúde, e possibilitar a troca de informação clínica entre cuidados primários e hospitalares. Mas, em contrapartida, toda esta informatização implica um elevado nível de proteção e segurança dada a sensibilidade da informação clínica e pessoal contida nos processos clínicos eletrónicos.
+Com o avanço da tecnologia, surgiram os processos clínico eletrónicos que visam não só colmatar as limitações referidas, bem como fornecer uma variedade de ferramentas auxiliares que permitam ajudar na decisão clínica, avaliar a qualidade dos cuidados prestados, ajudar na investigação e na educação médica, realizar a gestão e o planeamento dos recursos de saúde, e possibilitar a troca de informação clínica entre cuidados primários e hospitalares. Mas, em contrapartida, toda esta informatização implica um elevado nível de proteção e segurança, dada a quantidade e sensibilidade da informação clínica e pessoal contida nos processos clínicos eletrónicos.
 
 As preocupações de proteção e segurança derivam do facto de que as diferentes instituições podem partilhar estas informações sensíveis entre si, confiando mutuamente que a informação irá ser mantida confidencial e será apenas usada para o propósito definido, assim como nas trocas de informação entre profissionais da mesma instituição. Contudo, o resultado desta partilha pode não ser o esperado, por isso é de grande preocupação o facto de que estes profissionais podem aceder à informação médica, não só da rede da sua instituição de trabalho como também de outras instituições. Isto torna difícil a gestão e a auditoria de quem tem, ou teve, acesso e a que informação, bem como saber quais os mecanismos de segurança o sistema deve ter.
-
-O problema da segurança nos sistemas de informação é um dos temas mais falados na atualidades não só relacionados à área da saúde como a todas as outras área. Deve-se, ainda, ter especial atenção a problemas relacionado, como a confidencialidade, uma vez que a grande acessibilidade aos dados implica uma grande ameaça para a privacidade dos doentes, devendo-se adotar medidas para prevenir a ocorrência de acessos não autorizados; como a integridade, pois erros nos dados e no \textit{software} podem acontecer, devendo-se adotar medidas de proteção contra a perda ou corrupção dos dados; e como a disponibilidade, dado que as instituições de saúde ficam cada vez mais dependentes do funcionamento dos sistemas de informação, devendo-se adotar medidas para que o acesso autorizado a informação confidencial esteja disponível sempre que necessário. Ver tabela \ref{tabl1}.
 
 \begin{table*}[!ht]
 \centering
@@ -166,22 +168,67 @@ O problema da segurança nos sistemas de informação é um dos temas mais falad
 \end{adjustbox}
 \end{table*}
 
+O problema da segurança nos sistemas de informação é um dos temas mais falados na atualidades, não só relacionados à área da saúde como a todas as outras área. Deve-se, ainda, ter especial atenção a problemas relacionado, como a confidencialidade, uma vez que a grande acessibilidade aos dados implica uma grande ameaça para a privacidade dos doentes, devendo-se adotar medidas para prevenir a ocorrência de acessos não autorizados; como a integridade, pois erros nos dados e no \textit{software} podem acontecer, devendo-se adotar medidas de proteção contra a perda ou corrupção dos dados; e como a disponibilidade, dado que as instituições de saúde ficam cada vez mais dependentes do funcionamento dos sistemas de informação, devendo-se adotar medidas para que o acesso autorizado a informação confidencial esteja disponível sempre que necessário. Ver tabela \ref{tabl1}.
+
 Rapidamente se percebe que para uma melhor proteção da informação deve-se aplicar as medidas de segurança tanto a nível dos equipamentos e do \textit{software}, como das pessoas e dos procedimentos. Garantir uma segurança perfeita é ainda impossível, no entanto é possível reduzir os riscos ou restringir possíveis danos devido à má utilização e/ou ao uso abusivo dos sistemas de informação.
 
 
 \subsection{Princípios éticos}
 
-Todas as instituições estão sujeitas a princípios éticos, e como tal as ações dos profissionais de saúde estão sujeitas a esses princípios, o qual se destaca o sigilo médico. Adicionalmente, quando estes princípios se aplicam no âmbito da informática, destaca-se desde logo o princípio da privacidade e o princípio da segurança, uma vez que todos os doentes têm o direito à privacidade e ao controlo da recolha, do armazenamento, do acesso, do uso e da transmissão da sua informação médica, e os dados recolhidos pelos profissionais de saúde devem ser protegidos contra a perda, corrupção, destruição, acesso, uso e alteração indevida ou não autorizada \cite{segurancaSI}.
+Todas as instituições estão sujeitas a princípios éticos, e como tal as ações dos profissionais de saúde estão sujeitas a esses princípios, o qual se destaca o sigilo médico. Adicionalmente, quando estes princípios se aplicam no âmbito da informática, destaca-se desde logo o princípio da privacidade e o princípio da segurança, uma vez que todos os doentes têm o direito à privacidade e ao controlo do tratamento da sua informação médica (como a recolha, o armazenamento, o acesso, o uso e a transmissão), e os dados recolhidos pelos profissionais de saúde devem ser protegidos contra a perda, corrupção, destruição, acesso, uso e alteração indevida ou não autorizada \cite{segurancaSI}.
 
-Perante toda a disponibilidade de informação clínica aos profissionais de saúde, que por um lado é essencial para uma melhor prestação de serviços mas que por outro pode ser em demasia e põe em causa questões muito sérias sobre a segurança dos dados. Inclusive, recentemente, o Bastonário da Ordem dos Médicos, Miguel Guimarães, afirmou o seguinte, "Os médicos têm potencialmente acesso a qualquer informação clínica de um doente e nem sei se deviam ter acesso a todas. Mas não são só os médicos que têm acesso, há outros profissionais que também têm", e, em defesa dos médicos, afirma que, "Isto é um problema atual. Mas quem é responsável pela partilha dessa informação de doentes não são os médicos", uma vez que, "Numa questão em que os dados passam a estar disponíveis num local em que potencialmente podem ter vários utilizadores, tenho dúvidas que a responsabilidade dessa partilha deva ser do médico e não do Estado português".
+Perante toda a disponibilidade de informação clínica aos profissionais de saúde, que por um lado é essencial para uma melhor prestação de cuidados, mas que por outro pode ser em demasia e põe em causa questões muito sérias sobre a segurança dos dados. Inclusive, recentemente, o Bastonário da Ordem dos Médicos, Miguel Guimarães, afirmou o seguinte, "Os médicos têm potencialmente acesso a qualquer informação clínica de um doente e nem sei se deviam ter acesso a todas. Mas não são só os médicos que têm acesso, há outros profissionais que também têm", e, em defesa dos médicos, afirma que, "Isto é um problema atual. Mas quem é responsável pela partilha dessa informação de doentes não são os médicos", uma vez que, "Numa questão em que os dados passam a estar disponíveis num local em que potencialmente podem ter vários utilizadores, tenho dúvidas que a responsabilidade dessa partilha deva ser do médico e não do Estado português".
 
 Com vista a melhorar a proteção de dados relacionados à saúde, uma série de leis e regulamentos foram propostos e atualizados nos últimos anos.
 
-Segundo o Regulamento de Deontologia Médica n.º707/2016, de 21 de Julho, "O Código Deontológico da Ordem dos Médicos é um conjunto de normas de comportamento que serve de orientação nos diferentes aspetos das relações humanas que se estabelecem no decurso do exercício profissional da medicina.". Diante destas normas, está bem explícita a obrigatoriedade do segredo médico, quer singular ou coletivamente, em unidades de saúde públicas, sociais, cooperativas ou privadas, no que diz respeito às informações que constem do processo individual do doente. É ainda dever das unidades de saúde e dos diretores clínicos impedir o acesso indevido de terceiros aos processos clínicos e aos sistemas informáticos que contenham informação de saúde.
-Consoante o artigo 32.º, o dever de segredo médico deixa de ser aplicado apenas e só mediante o consentimento do doente (ou representante legal), se a revelação não prejudicar terceiros com interesse na manutenção do segredo, e não pode ser revelado mais do que o extremamente necessário. O mesmo é válido para as informações que revelem um nascimento ou um óbito, e de doenças de declaração obrigatória.
+Segundo o Regulamento de Deontologia Médica n.º707/2016, de 21 de Julho, "O Código Deontológico da Ordem dos Médicos é um conjunto de normas de comportamento que serve de orientação nos diferentes aspetos das relações humanas que se estabelecem no decurso do exercício profissional da medicina.". Diante destas normas, está bem explícita a obrigatoriedade do segredo médico, quer singular ou coletivamente, em unidades de saúde públicas, sociais, cooperativas ou privadas, no que diz respeito às informações que constem do processo individual do doente. E que é ainda dever das unidades de saúde e dos diretores clínicos impedir o acesso indevido de terceiros aos processos clínicos e aos sistemas informáticos que contenham informação de saúde.
+Consoante o artigo 32.º, o dever de segredo médico deixa de ser aplicado apenas e só mediante o consentimento do doente (ou representante legal), se a revelação não prejudicar terceiros com interesse na manutenção do segredo, e não pode ser revelado mais do que o extremamente necessário. O mesmo é válido para as informações que revelem um nascimento ou um óbito, e de doenças de declaração obrigatória (como o caso de epidemias).
 
-Perante ainda o artigo 36.º do regulamento, sobre dados médicos informados, todos os ficheiros, bases e bancos de dados com informações clínicas sujeitas a segredo médico, devem ser equipados com sistemas, e utilizados com procedimentos de segurança, que impeçam a consulta, alteração e destruição de dados por pessoas não autorizadas, e que detetem desvios de informação, caso estas conduções não se verifiquem, os equipamentos não devem estar conectados com outros tipos de redes informáticas.
+Perante o artigo 36.º do regulamento, sobre dados médicos informatizados, todos os ficheiros, bases e bancos de dados com informações clínicas sujeitas a segredo médico, devem ser equipados com sistemas, e utilizados com procedimentos de segurança, que impeçam a consulta, alteração e destruição de dados por pessoas não autorizadas, e que detetem desvios de informação, e caso estas condições não se verifiquem, os equipamentos não devem estar conectados com outros tipos de redes informáticas. E perante o artigo 37.º, é da responsabilidade da gestão dos sistemas garantir a separação entre a informação de médica, genética e a informação pessoal, designadamente através da definição de diversos níveis de acesso. 
 
+Dada a crescente disponibilidade da informação médica e a consequente preocupação com a privacidade dessa informação, em Maio de 2018 entra em vigor o novo Regulamento Geral de Proteção de Dados (RGPD) que vem substituir a atual diretiva e lei de proteção de dados pessoais, o que também inclui a informação relativa a saúde. Perante este novo regulamento, em \cite{rgpd2018} é apresentada uma análise prática sobre o tratamento e acesso a dados de saúde, onde conta que uma instituição de saúde que pretenda recolher e tratar dados pessoais dos seus doentes e dos dados relativos à saúde dos mesmos (dados pessoais relacionados com a saúde física ou mental de uma pessoa singular, incluindo a prestação de serviços de saúde, que revelem informação sobre o estado da sua saúde), deverá obter o consentimento do doente para tais finalidades. Este consentimento consiste "numa manifestação de vontade, livre, específica, informada e explícita, pelo qual o titular dos dados aceita, mediante declaração ou acto positivo inequívoco, que os dados pessoais que lhe dizem respeito sejam objecto de tratamento".
+
+
+\subsection{Proprietário da informação médica}
+
+Perante a lei n.º 12/2005, de 26 de Janeiro, sobre informação genética pessoal e informação de saúde, a informação de saúde, incluindo os dados clínicos registados, resultados de análises e de outros exames, intervenções e diagnósticos, é propriedade do doente, e as instituições de saúde são os depositários dessa informação, sujeitos ao segredo médico. Perante isto, o titular da informação tem o direito de tomar conhecimento dessa informação, presente no seu processo clínico físico e eletrónico, ou de a fazer comunicar a algum terceiro indicado por ele, exceto perante circunstâncias devidamente justificadas.
+
+Uma das restrições excecionais nesta matéria, é a informação constante de anotações pessoais efetuadas pelos profissionais de saúde nos registos e processos clínicos dos doentes.
+Pois, tratam-se de anotações pessoais, efetuadas designadamente para memória futura do próprio profissional de saúde, e que não se destinam a classificar ou identificar nenhum dado pessoal do doente.
+Assim, tais anotações ou descrições, apesar de poderem constar dos registos e processos clínicos dos doentes, não devem ser considerados dados pessoais dos mesmos.
+
+A CNPD, como autoridade, tem força obrigatória e pode aceder às instalações, aos sistemas informáticos, a ficheiros de dados pessoais e processos clínicos, tendo acesso a qualquer informação médica e pessoal existente, sempre que necessário. O não acatamento das suas decisões configura crime de desobediência qualificada.
+
+
+
+\subsection{Utilização/tratamento da informação médica}
+
+Uma das questões mais importantes que todo o doente deve colocar é "Como e onde a minha informação médica é utilizada?".
+
+Primeiramente é importante reconhecer dois níveis de utilização, utilização primária e utilização secundária de dados. A utilização primária de dados corresponde à utilização da informação de saúde pela instituição que produziu ou adquiriu os dados nela contidos durante o atendimento direto (figura \ref{fig1}), em tempo real, do doente. Enquanto que a utilização secundária de dados corresponde à utilização de técnicas indiretas aplicadas à informação de saúde, incluindo, entre outras, análises, pesquisas, medições de qualidade/segurança, saúde pública, pagamento, certificação ou acreditação de provedores e marketing e outros negócios \cite{safran2007toward}.
+
+É precisamente sobre este segundo nível de utilização que surgem inúmeras questões éticas, técnicas, económicas e processuais que levam à grande questão "\textit{How private is my medical information?}". Uma vez que tanto a indústria como as instituições académicas tem mostrado um grande interesse na utilização da informação médica. 
+
+Entre outros, a utilização para efeitos de investigação, tem ganho amplo interesse dado o surgimento do \textit{Big Data} e \textit{Data Analytics}. Em particular, a construção de modelos de previsão a partir de uma grande conjunto de dados de vários pacientes diferentes, relevantes para uma determinada doença, usando técnicas de \textit{machine learning} pode contribuir substancialmente para a evolução da medicina e para a saúde pública, uma vez que podem ajudar a identificar os fatores de risco genéticos e ambientais e constituir a base para a análise de previsão. No entanto, mesmo utilizando os dados anonimizados, as preocupações com a privacidade devem permanecer \cite{bos2014private}, pois como já mencionado, um processo clínico eletrónico contém para além do conjunto de atributos identificadores (como o nome e o número de utente), atributos "quase"-identificadores (como o género e a morada) e atributos médicos (como doenças), e a partir das técnicas de \textit{data mining} é possível categorizar e pesquisar doentes com base em inúmeros fatores como idade, género ou doença, o que possibilita a re-identificação dos doentes ou subconjuntos de doentes, comprometendo assim a privacidade dos doentes \cite{meingast2006security}.
+Dada toda a nova tecnologia e métodos, adotar um nível aceitável de anonimização destes dados (dados de-identificados) tem sido e continua a ser um grande desafio.
+
+Um outro exemplo é o interesse no desenvolvendo de sistemas de sensores para a monitorização remota de doentes, que utiliza tecnologia WBAN (\textit{wireless body area networks}). A ideia é transmitir os dados dos sensores para a estação central de monitorização (o centro de saúde do doente, por exemplo), e incorpora-los no processo clínico eletrónico do doente de forma a melhorar a prestação de cuidados de saúde (ver \cite{meingast2006security} para mais detalhes). Contudo, toda esta tecnologia aumenta o perigo de comprometer a segurança e a privacidade dos doentes, o que leva a uma maior preocupações do que já foi referenciado, ou seja, os direitos de acesso aos dados, como e quando os dados são transferido e armazenados e direitos de análise dos dados.
+
+Isto suscita grande interesse e impacto também económico e, por um lado, temos as empresas privadas que desenvolvem e implantam ferramentas de análise que acumulam dados através dos seus negócios e acordos, e que dependendo desses acordos, podem ou não estar obrigados a manter a confidencialidade dos dados do doentes. Por outro lado, temos verificado um crescente aparecimento de bancos de dados públicos, que apesar de anonimizados, não podemos descartar a possibilidade de re-identificação. Todo este conjunto de bancos de dados trás por uma lado, uma maior exposição da privacidade de todos os doentes o que pode levar a questões sérias como roubo de identidade e discriminação e exclusão, tanto a nível social como profissional, mas por outros grande benefícios para a evolução dos cuidados de saúde, novas descobertas e técnicas de prevenção, e por isso existe uma grande necessidade de encontrar aqui um equilíbrio de forma a minimizar os riscos e aumentar as possibilidades de pesquisa.
+
+
+\section{Plataformas e Aplicações na área da saúde}
+
+A evolução do exercício da medicina, nomeadamente com a chegada das novas tecnologias obriga os profissionais de saúde a uma constante atualização.
+
+A prescrição eletrónica de medicamentos e os meios complementares de diagnóstico e terapêuticos, representam um passo importante na monitorização e controlo do uso dos recursos tecnológicos na área da saúde. Para estes efeitos e para que haja uma maior interação dos doentes, nos últimos anos têm surgido novas plataformas \textit{online} bem como aplicações para \textit{smartphones}.
+
+Nesta secção vamos apresentar alguma dessas plataformas e aplicações.
+
+
+\subsection{SONHO}
+
+%O SONHO\footnote{\url{http://portalcodgdh.min-saude.pt/index.php/SONHO#Introdu.C3.A7.C3.A3o}} (Sistema Integrado de Informação Hospitalar) foi desenvolvido para melhorar a gestão de doentes.
 
 %----------------------CONCLUSÃO----------------------%
 
@@ -189,7 +236,7 @@ Perante ainda o artigo 36.º do regulamento, sobre dados médicos informados, to
 
 % resumir o que foi apresentado e indicar possíveis tópicos de continuação ou perspectivas de futuro/sucesso (10-15 linhas).
 
-\bibliography{ref}
+\bibliography{referencias_PMI}{}
 \bibliographystyle{IEEEtran}
 
 \end{document}
