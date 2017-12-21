@@ -60,6 +60,8 @@
 
 % introduzir o tema de forma clara (o que é, em que consiste, quando e como surgiu, para que serve, ...), fazer o enquadramento (semelhanças e/ou diferenças) com os restantes tópicos apresentados nas aulas e descrever sumariamente a organização do relatório.
 
+Em termos de registo clínico, o SINUS é utilizado nas unidades de cuidados primários e o SONHO utilizado nas unidades Hospitalares, foram implementados com a finalidade de garantir a interligação dos dados e processos clínicos dos pacientes, visando o desenvolvimento de um sistema único, comum a todas unidades hospitalares. Um sistema que permitisse a comunicação entre os centros de saúde e as unidades Hospitalares a partir da rede RIS.
+
 \section{Secção sobre conceitos/terminologia e entidades de saúde}
 
 % organizar segundo o tema em questão e segundo os tópicos que pretende realçar. Uma das secções pode ser usada para referenciar ou comparar trabalhos relacionados.
@@ -121,7 +123,7 @@ A informação que consta num processo clínico corresponde a informação maior
 
 Na verdade, muitas das vezes os profissionais de saúde não dispõem de toda a informação sobre os doentes, o que poderá refletir-se na qualidade e nos resultados da sua intervenção. Estas falhas no acesso à informação médica podem conduzir a quebras na continuidade dos serviços prestados, a tratamentos/procedimentos inadequados ou pouco eficazes, com efeitos negativos para o bem-estar do doente \cite{santos2010comunicaccao}. 
 
-\begin{figure}[!ht]
+\begin{figure}[!t]	
     \centering
     \begin{minipage}{.9\textwidth}
         \includegraphics[width=0.53\textwidth]{diagnostico_terapeutica.png}
@@ -168,9 +170,9 @@ As preocupações de proteção e segurança derivam do facto de que as diferent
 \end{adjustbox}
 \end{table*}
 
-O problema da segurança nos sistemas de informação é um dos temas mais falados na atualidades, não só relacionados à área da saúde como a todas as outras área. Deve-se, ainda, ter especial atenção a problemas relacionado, como a confidencialidade, uma vez que a grande acessibilidade aos dados implica uma grande ameaça para a privacidade dos doentes, devendo-se adotar medidas para prevenir a ocorrência de acessos não autorizados; como a integridade, pois erros nos dados e no \textit{software} podem acontecer, devendo-se adotar medidas de proteção contra a perda ou corrupção dos dados; e como a disponibilidade, dado que as instituições de saúde ficam cada vez mais dependentes do funcionamento dos sistemas de informação, devendo-se adotar medidas para que o acesso autorizado a informação confidencial esteja disponível sempre que necessário. Ver tabela \ref{tabl1}.
+O problema da segurança nos sistemas de informação é um dos temas mais falados na atualidades, não só relacionados à área da saúde como a todas as outras área. Deve-se, ainda, ter especial atenção a problemas relacionado, como a confidencialidade, uma vez que a grande acessibilidade aos dados implica uma grande ameaça para a privacidade dos doentes, devendo-se adotar medidas para prevenir a ocorrência de acessos não autorizados; como a integridade, pois erros nos dados e no software podem acontecer, devendo-se adotar medidas de proteção contra a perda ou corrupção dos dados; e como a disponibilidade, dado que as instituições de saúde ficam cada vez mais dependentes do funcionamento dos sistemas de informação, devendo-se adotar medidas para que o acesso autorizado a informação confidencial esteja disponível sempre que necessário. Ver tabela \ref{tabl1}.
 
-Rapidamente se percebe que para uma melhor proteção da informação deve-se aplicar as medidas de segurança tanto a nível dos equipamentos e do \textit{software}, como das pessoas e dos procedimentos. Garantir uma segurança perfeita é ainda impossível, no entanto é possível reduzir os riscos ou restringir possíveis danos devido à má utilização e/ou ao uso abusivo dos sistemas de informação.
+Rapidamente se percebe que para uma melhor proteção da informação deve-se aplicar as medidas de segurança tanto a nível dos equipamentos e do software, como das pessoas e dos procedimentos. Garantir uma segurança perfeita é ainda impossível, no entanto é possível reduzir os riscos ou restringir possíveis danos devido à má utilização e/ou ao uso abusivo dos sistemas de informação.
 
 
 \subsection{Princípios éticos}
@@ -228,13 +230,111 @@ Nesta secção vamos apresentar alguma dessas plataformas e aplicações.
 
 \subsection{SONHO}
 
-%O SONHO\footnote{\url{http://portalcodgdh.min-saude.pt/index.php/SONHO#Introdu.C3.A7.C3.A3o}} (Sistema Integrado de Informação Hospitalar) foi desenvolvido para melhorar a gestão de doentes.
+O SONHO\footnote{\url{http://portalcodgdh.min-saude.pt/index.php/SONHO\#Introdu.C3.A7.C3.A3o}} (Sistema Integrado de Informação Hospitalar) foi desenvolvido com o intuito organizar o sistema de base e dados hospitalares de forma a melhorar a gestão de doentes. É um sistema ADT (\textit{Admission-discharge-transfer}), ou seja, baseia-se na ideia de que a cada doente é atribuído um número único de identificação.
+
+Para além da versão criada para os cuidados hospitalares, SONHO-HOSP V2, que melhora alguns problemas técnicos do SONHO, também foi criada uma versão para os cuidados de saúde primários (SONHO-CSP) que visa cobrir as necessidades administrativas referentes a estes cuidados e que permite, também, um alinhamento entre os cuidados de saúde primários e hospitalares, de extrema importância \cite{sonho}.
+
+O SONHO é constituído por oito módulos (identificação, urgência, internamento, consulta externa, bloco operatório, hospital de dia, arquivo/estatística, e faturação) que melhora a eficiência da gestão dos doentes e dos episódios clínicos. O módulo identificação contém os dados pessoais dos doentes e baseia-se na ideia de "um doente/um número único de identificação" de forma a evitar duplicação de informação; o módulo urgência contêm toda a informação médica sobre a urgência (local e tipo de urgência, tipo de acidente, prioridades, especialidades, etc) e perante está informação liga-se aos módulos de consulta externa, internamento e bloco operatória, é também o único módulo, à exceção do módulo identificação, que permite a existência de dados de identificação de doentes que recorreram ao serviço de urgência e por isso podem não ser ainda doentes do hospital e consequentemente os registos não constam no módulo identificação, estes dados poderão ser posteriormente transcritos para o módulo identificação, caso a urgência gere internamento ou consulta externa \cite{sonho}. O módulo internamento gere alguns procedimentos clínicos e administrativos relacionados com a estadia do doente no hospital, é responsável pela atribuição de cama do doente (consultando o registo de gestão de camas), e caso não existam camas disponíveis deve gerir a respetiva lista de espera, por isso deve conter toda a informação necessária para esta gestão, desde datas (inicio e fim do internamento), especialidades, transferências, diagnósticos, medicamentos, etc, este módulo liga-se ao módulo do bloco operatório e hospital de dia; o módulo hospital de dia gere as agendas das diferentes especialidades e as marcações de sessões, e como tal liga-se ao módulo bloco operatório; o módulo consulta externa gere as tabelas por área de consulta (calcula as demoras médias por médico e especialidade) e gere o calendário e grupos de consulta, estando ligado ao módulo de internamento, bloco operatório e hospital de dia; o módulo bloco operatório contém  informação sobre a gestão de blocos operatórios e salas, quais os motivos de cancelamento de cirurgias,  tipos e grupos de anestesia e respectivos riscos, os tipos de cirurgia, os fármacos por anestesia e faz a gestão dos agendamentos das cirurgias \cite{sonho2013}, \cite{sonho}. O módulo arquivo/estatística é responsável por fornecer o processo do doente, tabelas de grupos, fazer o agrupamento de exames, verificar mapas estatísticos e gerir acessos a mapas por perfil; o modulo faturação permite verificar a faturação de todo o episódio hospitalar e quais as despesas que o cliente terá com o mesmo \cite{sonho}.
+
+Como podemos verificar o SONHO contém toda uma vasta de informação médica e pessoas dos doentes, como informações relativas à própria instituição, e como já mencionado acima isto requer grandes procedimentos e sistemas de segurança. Em particular o SONHO utiliza um sistema de bases de dados que é da Oracle, versão 7.3.4 (atualmente na versão 12) com linguagem PL/SQL (\textit{Oracle’s procedural language extension to SQL}). É manipulada com DBLink (\textit{database link}) que define um caminho "\textit{path}" de uma base de dados da Oracle para outra base de dados, e permite com que sejam feitas "\textit{queries}" em tabelas remotas e executar essas "\textit{queries}" na base de dados. \cite{sonho}. De forma a tornar o sistema seguro, existem políticas de acesso à base de dados e ao sistema, que são geridos localmente sem qualquer gestão central. 
+
+A possibilidade de criação de atalhos para outros sistemas externos através de interfaces WEB podem comprometer a segurança na utilização do sistema e o facto de a tecnologia utilizada no SONHO estar obsoleta \cite{sonho}, implica que existam problemas a níveis aplicacionais tais como na segurança da autenticação, na acessibilidade à informação e monitorização (perfis/utilizador) e na segurança física da informação.
+
+
+\subsection{SINUS}
+
+O SINUS foi desenvolvido com o objetivo da informatização do perfil administrativo dos Cuidados de Saúde Primários. As sua principais funcionalidades são a gestão de doentes (dados pessoas e de saúde, inscrição na unidade de saúde, atribuição de médico e enfermeiro de família, gestão do processo de família); agendamento de contactos programados e registo de contactos não programados (agendamento de consultas e atos de enfermagem, efetivação, remarcação, gestão de ausências); cobrança de taxas (cálculo de isenções e dispensas de taxas moderadoras e taxas sanitárias, motor de regras para cálculo da cobrança); gestão de utilizadores; gestão de profissionais; gestão de agendas; estatísticas; e listagens \cite{sinus}.
+
+Este sistema é constituído por seis módulos, o que garante a integração de todos dos módulos (módulo integrador), o registo administrativo de contato que contém o registo de todos os contatos do utente com o centro de saúde, o de consulta que contém o registo de informação sobre consultas (a partir do registo administrativo de contato), o módulo de vacinação que contém o plano de vacinas e alertas médicas, o que urgência que regista todas as consultas urgentes e dados decorrentes da urgência (a partir do registo administrativo de contato), e o cartão de identificação do utente do Serviço Nacional de Saúde que é responsável  pela requisição e emissão de cartões e controlo do número nacional único atribuído a cada utente.
+
+Esta tecnologia foi evoluindo ao longo dos anos permitindo aos profissionais de saúde registar dados clínicos, prescrições e outros dados, resultando na implementação de sistemas como o SAM (Sistema de apoio ao Médico), SAPE (Sistema de Apoio à Pratica de Enfermagem), bem como o desenvolvimento de outros módulos de apoio \cite{sinus}.
+
+
+\subsection{RSE}
+
+O objetivo do Registo de Saúde Eletrónico (RSE) é melhorar a prestação de cuidados de saúde, e para tal reúne dados clínicos de cada doente recolhidos eletronicamente. Este permite o registo e a partilha da informação entre o utente, os profissionais de saúde e as instituições de saúde, tendo em conta os requisitos da CNPD.
+
+O RSE é constituída por quatro portais \cite{rse}:
+
+\begin{itemize}
+
+	\item \textbf{Área do Cidadão} - destinado aos doentes que podem registar na sua área, contactos de emergência, informação sobre hábitos, medicação, alergias e doenças, medições de peso, altura, glicémia, tensão arterial, colesterol, triglicéridos, saturação de oxigénio e de tempo de coagulação do sangue(INR), podem, também, carregar documentos de saúde, partilhar dados de saúde com os profissionais de saúde, marcar consultas via online, realizar pedidos de prescrição de medicação crónica, consultar a sua informações médicas e consultar os dados que constam do Resumo Clínico Único (RCU): alergias, medicação, diagnósticos, cirurgias e vacinação.
+	
+	\item \textbf{Portal do Profissional} - destinado ao profissionais de saúde (médicos e enfermeiros) e centrado no doente, de forma a que os profissionais tenham acesso à informação médica do doente, incluindo todas a informação que este coloca na sua Área do Cidadão (assim que autorizar). Este portal também permite o acesso do cronograma com todos os contactos efetuados pelo doente, nas diversas instituições do país.
+	
+	\item \textbf{Portal Institucional} - consiste num \textit{backoffice} para a gestão centralizada do RSE e estatísticas referentes a ele.
+	
+	\item \textbf{Portal Internacional} - destinado a médicos de outros país da União Europeia, para a consulta do Resumo Clínico Único do doente, mediante a sua prévia autorização.
+
+\end{itemize}
+
+
+\subsection{RNU}
+
+O Registo Nacional de Utentes (RNU) representa a base de dados de referência para a identificação dos Utentes do Serviço Nacional de Saúde, através do número de Utente. É constituído pela base de dados nacional (repositório central de dados dos doentes do SNS), pela aplicação web (WEBRNU) que gere os dados de identificação dos doentes, e pela plataforma de interoperabilidade que disponibiliza serviços de consulta de dados (Web Services) a um vasto número de entidades e sistemas do SNS, devidamente autorizados para o efeito.
+
+
+\subsection{iMED}
+
+O iMED\footnote{\url{https://www.imed.pt/imed/}} é uma plataforma de gestão clínica \textit{online} concebida para reunir, num único software, todas as ferramentas essenciais para um simples, completo e eficiente funcionamento de um consultório ou clínica. Este funciona em tecnologia totalmente web, alojada na \textit{Cloud}, sendo apenas necessária uma ligação à Internet para aceder ao sistema.
+
+Esta plataforma dispõe de uma aplicação móvel e de apoio presencial e/ou telefónico gratuito, e, dado o seu objetivo, possui ligação instantânea ao RNU, assim como diferentes níveis de acesso para o staff médico e administrativo, com o intuito de melhorar a segurança e consequente privacidade dos doentes.
+
+Mediante o acordo assinado com a Ordem do Médicos, o iMED é responsável pelo tratamento de dados, obrigado a respeitar a confidencialidade dos dados que recolhe e a tratar de forma informatizada ou sem meios automáticos todos os dados recolhido, de acordo como as normas estabelecidas pela CNPD, não podendo divulgar, cede, transmitir ou facultar os dados. É ainda obrigado a permitir ao titular dos dados gratuitamente, o acesso e a correção das informações prestadas assim como a destruição dos dados recolhidos, ter sistemas de segurança que impeçam a consulta, modificação, destruição ou acrescentamento dos dados por pessoa não autorizada a fazê-lo e que permitam detetar desvios de informação, respeitar o sigilo profissional em relação aos dados tratados e não realizar qualquer tipo de interconexão de dados ou tratamento estatístico. Se estes deveres não forem compridos, é da responsabilidade do iMED indemnizar os lesados pelos danos causados, assim como assumir qualquer tipo de responsabilidade do foro contraordenacional, civil e criminal.
+
+
+\subsection{MedicineOne}
+
+O MedicineOne\footnote{\url{http://www.medicineone.net//}}
+
+
+
+\subsection{MySNS}
+
+
+
+
+\section{Projetos futuros}
+
+
+
+
+
+
+
+
+
+
+
 
 %----------------------CONCLUSÃO----------------------%
 
 \section{Conclusões}
 
 % resumir o que foi apresentado e indicar possíveis tópicos de continuação ou perspectivas de futuro/sucesso (10-15 linhas).
+
+Atravessamos um período de transformação digital onde temos cada vez mais informação a
+circular em formato digital/eletrónico (desmaterialização de processos), cada vez mais
+dispositivos pessoais ligados à internet a qualquer hora e em qualquer lugar, cada vez mais
+dependência da internet (redes sociais, vídeos online de sites com o Youtube, streaming - TV
+e radio online…), enfim, estamos cada vez mais expostos a um “mundo desconhecido”.	
+
+->O posto de trabalho é a componente mais vulnerável.
+
+A necessidades de modelo comum de informação, de políticas de segurança com controlo de acesso
+e transmissões de dados seguras devem ser claramente identificadas e implementadas.
+
+O registo electrónico dos dados clínicos dos doentes e a sua partilha entre todos os
+profissionais envolvidos é fundamental para optimizar os processos de prestação de
+cuidados de saúde. Segundo este autor, para que o registo e circulação da informação
+clínica em formato electrónico seja bem aceite, é fundamental assegurar que este tipo de
+circulação seja fiável e seguro. É importante conseguir um bom compromisso entre dois
+objectivos que por vezes entram em conflito: melhorar os cuidados de saúde prestados
+ao cidadão e garantir a sua privacidade (Araújo, 2007). 
+
+
+
+
 
 \bibliography{referencias_PMI}{}
 \bibliographystyle{IEEEtran}
